@@ -1,0 +1,141 @@
+<ISSPECS>
+	<DESCRIPTION>
+		<TITLE>Maison</TITLE>
+	</DESCRIPTION>
+	<DATA>
+		<ENTITY ent_id="SubCategory">
+			<PROPERTY>id</PROPERTY>
+			<PROPERTY>name</PROPERTY>
+            <PROPERTY>slag</PROPERTY>
+            <PROPERTY>category_id</PROPERTY>
+		</ENTITY>
+        <ENTITY ent_id="Category">
+			<PROPERTY>id</PROPERTY>
+			<PROPERTY>name</PROPERTY>
+            <PROPERTY>slag</PROPERTY>
+		</ENTITY>
+        <ENTITY ent_id="Product">
+			<PROPERTY>id</PROPERTY>
+			<PROPERTY>sub_category_id</PROPERTY>
+            <PROPERTY>manufacturer_id</PROPERTY>
+            <PROPERTY>name</PROPERTY>
+            <PROPERTY>slag</PROPERTY>
+            <PROPERTY>main_image</PROPERTY>
+            <PROPERTY>detail_image</PROPERTY>
+            <PROPERTY>description</PROPERTY>
+            <PROPERTY>price</PROPERTY>
+            <PROPERTY>stock</PROPERTY>
+            <PROPERTY>available</PROPERTY>
+            <PROPERTY>created</PROPERTY>
+            <PROPERTY>updated</PROPERTY>
+		</ENTITY>
+        <ENTITY ent_id="Manufacturer">
+			<PROPERTY>id</PROPERTY>
+			<PROPERTY>name</PROPERTY>
+            <PROPERTY>description</PROPERTY>
+            <PROPERTY>email</PROPERTY>
+            <PROPERTY>website</PROPERTY>
+		</ENTITY>
+        <ENTITY ent_id="Order">
+			<PROPERTY>id</PROPERTY>
+			<PROPERTY>first_name</PROPERTY>
+            <PROPERTY>last_name</PROPERTY>
+            <PROPERTY>email</PROPERTY>
+            <PROPERTY>adress</PROPERTY>
+            <PROPERTY>postal_code</PROPERTY>
+            <PROPERTY>city</PROPERTY>
+            <PROPERTY>created</PROPERTY>
+            <PROPERTY>updated</PROPERTY>
+            <PROPERTY>paid</PROPERTY>
+		</ENTITY>
+        <ENTITY ent_id="OrderItem">
+			<PROPERTY>id</PROPERTY>
+			<PROPERTY>order</PROPERTY>
+            <PROPERTY>product</PROPERTY>
+            <PROPERTY>price</PROPERTY>
+            <PROPERTY>quantity</PROPERTY>
+		</ENTITY>
+		<ENTITY ent_id="User">
+			<PROPERTY>id</PROPERTY>
+			<PROPERTY>password</PROPERTY>
+			<PROPERTY>last_login</PROPERTY>
+			<PROPERTY>email</PROPERTY>
+			<PROPERTY>is_superuser</PROPERTY>
+			<PROPERTY>user_name</PROPERTY>
+			<PROPERTY>first_name</PROPERTY>
+			<PROPERTY>is_stuff</PROPERTY>
+			<PROPERTY>is_active</PROPERTY>
+			<PROPERTY>data_joined</PROPERTY>
+		</ENTITY>
+		<RELATIONSHIPS ent_ids = "SubCategory Category">
+			<PROPERTY>ONE TO MANY</PROPERTY>
+		</RELATIONSHIPS>
+		<RELATIONSHIPS ent_ids = "Product SubCategory">
+			<PROPERTY>ONE TO MANY</PROPERTY>
+		</RELATIONSHIPS>
+		<RELATIONSHIPS ent_ids = "Product Manufacturer">
+			<PROPERTY>ONE TO MANY</PROPERTY>
+		</RELATIONSHIPS>
+		<RELATIONSHIPS ent_ids = "OrderItem Product">
+			<PROPERTY>ONE TO MANY</PROPERTY>
+		</RELATIONSHIPS>
+		<RELATIONSHIPS ent_ids = "OrderItem Product">
+			<PROPERTY>ONE TO MANY</PROPERTY>
+		</RELATIONSHIPS>
+		<RELATIONSHIPS ent_ids = "OrderItem Order">
+			<PROPERTY>ONE TO MANY</PROPERTY>
+		</RELATIONSHIPS>
+		<RELATIONSHIPS ent_ids = "Review User">
+			<PROPERTY>ONE TO MANY</PROPERTY>
+		</RELATIONSHIPS>
+	</DATA>
+	<ROLES>
+		<ROLE>
+			<TITLE>Гость</TITLE>
+			<RESPOSIBILITY>Просматривать информацию о товарах</RESPOSIBILITY>
+			<RESPOSIBILITY>Зарегистрироваться</RESPOSIBILITY>
+			<RESPOSIBILITY>Авторизоваться</RESPOSIBILITY>
+		</ROLE>
+		<ROLE>
+			<TITLE>Авторизованный пользователь</TITLE>
+			<RESPOSIBILITY>Просматривать информацию о товарах</RESPOSIBILITY>
+			<RESPOSIBILITY>Зарегистрироваться</RESPOSIBILITY>
+			<RESPOSIBILITY>Авторизоваться</RESPOSIBILITY>
+			<RESPOSIBILITY>Добавлять и убирать товары из корзины</RESPOSIBILITY>
+			<RESPOSIBILITY>Просматривать список товаров в корзине</RESPOSIBILITY>
+			<RESPOSIBILITY>Оформлять заказы</RESPOSIBILITY>
+			<RESPOSIBILITY>Просматривать список своих заказов</RESPOSIBILITY>
+			<RESPOSIBILITY>Выходить из аккаунта</RESPOSIBILITY>
+			<RESPOSIBILITY>Оставлять отзывы о товара</RESPOSIBILITY>
+		</ROLE>
+		<ROLE>
+			<TITLE>Администратор</TITLE>
+			<RESPOSIBILITY>Просматривать информацию о товарах</RESPOSIBILITY>
+			<RESPOSIBILITY>Зарегистрироваться</RESPOSIBILITY>
+			<RESPOSIBILITY>Авторизоваться</RESPOSIBILITY>
+			<RESPOSIBILITY>Добавлять и убирать товары из корзины</RESPOSIBILITY>
+			<RESPOSIBILITY>Просматривать список товаров в корзине</RESPOSIBILITY>
+			<RESPOSIBILITY>Оформлять заказы</RESPOSIBILITY>
+			<RESPOSIBILITY>Просматривать список своих заказов</RESPOSIBILITY>
+			<RESPOSIBILITY>Выходить из аккаунта</RESPOSIBILITY>
+			<RESPOSIBILITY>Оставлять отзывы о товара</RESPOSIBILITY>
+			<RESPOSIBILITY>Добавлять новые товары на платформу и редактировать информацию о существующих товарах</RESPOSIBILITY>
+			<RESPOSIBILITY>Добавлять информацию о новых производителях и редактировать существующих</RESPOSIBILITY>
+			<RESPOSIBILITY>Создавать новые категории товаров и редактировать текущие</RESPOSIBILITY>
+			<RESPOSIBILITY>Просматривать информацию об оформленных заказах всех пользователей и редактировать при необходимости</RESPOSIBILITY>
+			<RESPOSIBILITY>Удалять отзывы пользователей при необходимости</RESPOSIBILITY>
+		</ROLE>
+	</ROLES>
+	<TECHSPEC>
+		<DEVTOOLS>
+			<DEV>Django</DEV>
+			<DEV>Psycopg2-binary</DEV>
+			<DEV>Django-allauth</DEV>
+			<DEV>Pillow</DEV>
+		</DEVTOOLS>
+		<DBMS>
+			<TITLE>PostgreSQL</TITLE>
+			<REASONING>PostgreSQL - основная БД.</REASONING>
+		</DBMS>
+	</TECHSPEC>
+</ISSPECS>
