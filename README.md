@@ -1,22 +1,26 @@
 # bd_spbu
-Первый запуск
-Команды для первого запуска приложения:
-docker-compose build
-docker-compose up -d
-docker-compose exec web python myshop3/manage.py makemigrations
-docker-compose exec web python myshop3/manage.py migrate
-docker-compose exec web python myshop3/manage.py createsuperuser
+## Первый запуск<br/>
+### Команды для первого запуска приложения:<br/>
+docker-compose build<br/>
+docker-compose up -d<br/>
+docker-compose exec web python myshop3/manage.py makemigrations<br/>
+docker-compose exec web python myshop3/manage.py migrate<br/>
+docker-compose exec web python myshop3/manage.py createsuperuser<br/>
 
-Адрес главной страницы http://0.0.0.0:8000
-Панель администратора http://0.0.0.0:8000/admin
 
-Для завершения работы 
-docker-compose down
+Адрес главной страницы http://0.0.0.0:8000<br/>
+Панель администратора http://0.0.0.0:8000/admin<br/>
 
-Дальнейшие запуски
-Запустить
-docker-compose up -d
 
-Завершить
-docker-compose down
+Для завершения работы <br/>
+docker-compose down<br/>
+
+
+### Дальнейшие запуски<br/>
+Запустить<br/>
+docker-compose up -d<br/>
+
+
+Завершить<br/>
+docker-compose down<br/>
 
